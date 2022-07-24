@@ -1,1 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>COLLAPSE COMPONENT</title>
+    <link rel="stylesheet" href="/collapse.css">
+</head>
+<body>
+    
+<h1>COLLAPSE COMPONENT</h1>
+
+<div class="collapse-wrapper">
+
+</div>
+    <script src="/collapse.js"></script>
+    <script>
+        //HW3: use getElementbyclassName:
+        const wrappingDiv = document.querySelector('.collapse-wrapper')
+        let collapse = new Collapse(
+            wrappingDiv, 'Show Details',
+            'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae unde, beatae consequatur alias aperiam, nostrum delectus libero natus dolor fugiat quod atque deleniti, ea perspiciatis consectetur dolorum quo tempora esse.' 
+        )
+        collapse.render()
+    </script>
+    
+</body>  
+</html>
+
+
+
+
+
+
+
+css
+
+body {
+    background-color: #333;
+    color: white;
+}
+
+
+
+.collapse button {
+    font-size: 2rem;   /* HW: How much is this?  It will be 32px , the browser used by default (16px)*/
+    padding: 1em;      /* HW: How much is this?  Padding is 32px, related to the root element */
+
+    background-color: #234;
+    border: 1px solid #456;
+    color: #789;
+}
+
+
+
+
+JS
+
+class Collapse {
+
+    constructor(rootElement, label, content) {
+       this.rootElement = rootElement,
+       this.label = label,
+       this.content = content
+
+       this.collapsed = true
+    
+    }
+    render() {
+        //HTML text Fragment
+        //this.rootElement.innerHTML = `
+        //<div class="collapse">
+        //<button>${this.label}</button>
+        //</div>
+        //`
+
+        //DOM FRAGMENT
+        let div = document.createElement('div')
+        div.className = "collapse"
+
+        let button = document.createElement('button')
+        button.innerText = this.label
+
+        div.appendChild(button)
+
+        this.rootElement.appendChild(div)
+
+        button.addEventListener('click', this.clickHandler.bind(this))
+        
+        if (!this.collapsed) {
+            //HW4:create the next DOM fragment
+            //<div class = "collapse-content">
+            // <p>{this.content}<p>
+            //  </div>
+            //and append it to wrapper
+
+            //HiNT: try to find out was rendered
+        }
+    }
+
+    clickHandler() {
+         this.collapsed = !this.collapsed
+         this.render()
+         
+    }
+
+}
+
 
