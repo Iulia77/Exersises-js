@@ -1,1 +1,92 @@
+<!DOCTYPE html>
+<html>
 
+<head>
+    <title>Button Class Example</title>
+    <style>
+        .form {
+            border: 1px solid #999;
+            padding: 20px;
+        }
+
+        button,
+        input {
+            padding: 20px;
+        }
+
+        button.success {
+            background-color: green;
+            color: white
+        }
+
+        button.danger {
+            background-color: red;
+            color: white
+        }
+
+        button.warning {
+            background-color: orange;
+            color: white
+        }
+
+        button.disabled {
+            background-color: gray;
+            color: black
+        }
+
+        button.default {
+            background-color: white;
+            color: black
+        }
+    </style>
+</head>
+
+<body>
+
+    <form class="form">
+        <input type="text" placeholder="some dummy input">
+        
+        <div id="actions"> 
+            <button >Click here</button>
+            <button >Click here</button>
+        </div>
+    </form>
+
+    <script>
+
+        class Button {
+            constructor(parrent_id, text, type, action) {
+                this.parrent_id = parrent_id
+                this.text = text
+                this.type = type
+                this.action = action
+                this.render()
+            }
+
+            render(parrent_id) {
+          
+                this.parrent_id.innerHTML += `<button class="${this.type}" onclick="${this.action}()">${this.text}</button>`
+        
+                // hint: html representation of the button - <button class="???" onclick="???">???</button> 
+            }
+
+        }
+
+        function okAction() {
+            alert("You've accepted")
+        }
+       
+        function cancelAction() {
+            alert("You've canceled")
+        }
+         
+        
+         let okButton = new Button (window["actions"], "OK", "success", "okAction")
+
+         let cancelButton = new Button (window["actions"], "CANCEL", "danger", "cancelAction")
+        // ???
+
+    </script>
+</body>
+
+</html>
