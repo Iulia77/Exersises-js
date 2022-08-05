@@ -1,0 +1,35 @@
+//EX: 1
+
+let table = document.getElementById('age-table');
+table.getElementsByTagName('label');
+document.querySelectorAll('#age-table label');
+table.rows[0].cells[0];
+table.getElementsByTagName('td')[0];
+table.querySelector('td')
+let form = document.getElementsByName('search')[0];
+document.querySelector('form[name="search"]');
+form.getElementsByTagName('input')[0];
+form.querySelector('input');
+let inputs = form.querySelectorAll('input')
+inputs[inputs.length-1];
+
+//EX:2
+
+let body = document.body;
+body.innerHTML = "<!--" + body.tagName + "--->";
+alert(body.firstChild.data); //Body
+
+
+//Ex: 3
+<div id="elem1"></div>
+<div id="elem2"></div>
+<div id="elem3"></div>
+
+    let text = '<b>text</b>'
+    elem1.append(document.createTextNode(text));
+    elem2.innerHTML = text;
+    elem3.textContent = text;
+
+    
+
+
